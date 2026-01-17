@@ -1,5 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
+    import { isEnoughSleep, wakeUpTime } from "./calc_sleep";
 
     let now = $state(Date.now());
     setInterval(() => {
@@ -10,25 +11,10 @@
     let cycles = $state(0);
     let duration = $derived(result - now);
 
-    const cycle = 90 * 60 * 1000; // length of a 90min sleep cycle in ms
-    const fall = 15 * 60 * 1000; // time to fall asleep
-    const goodState = 100;
-    const badState = 0;
-    const cycleMin = 3.5;
-    const cycleMax = 5;
-
-    let enough = $derived.by(() => {
-        if (cycles <= cycleMin) return badState;
-        if (cycles > cycleMax)
-            return (goodState - badState) / (cycleMax - cycleMin) / 2;
-        return (
-            (goodState - badState) /
-            ((cycleMax - cycleMin) / (cycles - cycleMin))
-        );
-    });
+    let enough = $derived.by(()=>isEnoughSleep(cycles));
 
     $effect(() => {
-        result = now + cycles * cycle + fall;
+        result = wakeUpTime(now, cycles);
     });
 
     let addCycle = () => {
