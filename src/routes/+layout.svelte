@@ -1,5 +1,6 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from "$lib/assets/favicon.svg";
+	import "$lib/assets/style.scss";
 
 	let { children } = $props();
 </script>
@@ -9,4 +10,6 @@
 	<title>⏰💤 Wakie-time</title>
 </svelte:head>
 
-{@render children()}
+<div class="app">
+	{@render children()}
+</div>
