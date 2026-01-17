@@ -54,20 +54,40 @@
 
 <h1>⏰💤 Wakie-time Calculator</h1>
 
-<button onclick={addCycle} class="cycles">+</button>
-<div class="cycles">{cycles} Cycles</div>
-<button onclick={redCycle} class="cycles">-</button>
+<div class="cycles">
+    <button onclick={redCycle} class="cycles">-</button>
+    <span class="center">
+        <span class="cycles">
+            <span class="num" style="--enough: {enough};">{cycles}</span>
+            Cycles
+        </span>
+        <span class="duration">
+            <span class="num">
+                {Math.round(duration / (1000 * 60 * 60))}
+            </span>
+            Hours
+            <span class="num">
+                {(Math.floor((duration / (1000 * 60 * 60)) * 100) / 100 -
+                    Math.floor(duration / (1000 * 60 * 60))) *
+                    60}
+            </span>
+            Minutes
+        </span>
+        <span class="result">
+            <span class="num">
+                {new Date(result).toLocaleTimeString([], {
+                    hour12: false,
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    // second: "2-digit",
+                    // timeZoneName: "shortGeneric",
+                })}
+            </span>
 
-<div class="duration">
-    {Math.round((duration / (1000 * 60 * 60)) * 100) / 100}h
-</div>
-<div class="enough">{enough}</div>
-<div class="result">
-    {new Date(result).toLocaleTimeString([], {
-        hour12: false,
-        hour: "2-digit",
-        minute: "2-digit",
-        // second: "2-digit",
-        timeZoneName: "shortGeneric",
-    })}
+            {new Date(result).toLocaleString([], {
+                timeZoneName: "shortGeneric",
+            }).split("M ")[1]}
+        </span>
+    </span>
+    <button onclick={addCycle} class="cycles">+</button>
 </div>
