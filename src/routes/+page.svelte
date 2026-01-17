@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { isEnoughSleep, wakeUpTime } from "./calc_sleep";
+    import { cycleDef, isEnoughSleep, wakeUpTime } from "./calc_sleep";
 
     let now = $state(Date.now());
     setInterval(() => {
@@ -8,7 +8,7 @@
     }, 1000); // keep the result clock running
 
     let result = $state(0);
-    let cycles = $state(0);
+    let cycles = $state(cycleDef);
     let duration = $derived(result - now);
 
     let enough = $derived.by(()=>isEnoughSleep(cycles));

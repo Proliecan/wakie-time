@@ -4,6 +4,7 @@ const goodState = 100;
 const badState = 0;
 const cycleMin = 3.5;
 const cycleMax = 5;
+export const cycleDef = cycleMax;
 
 // Enough sleep is measured from badState to goodState.
 export function isEnoughSleep(cycles: number) {
