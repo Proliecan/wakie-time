@@ -40,24 +40,31 @@
 
 <h1>⏰💤 Wakie-time Calculator</h1>
 
-<div class="cycles">
-    <button onclick={redCycle} class="cycles">-</button>
-    <span class="center">
+<div class="calculator">
+    <div class="cycles">
+        <button onclick={redCycle} class="cycles">-</button>
         <span class="cycles">
             <span class="num" style="--enough: {enough};">{cycles}</span>
             Cycles
         </span>
+        <button onclick={addCycle} class="cycles">+</button>
+    </div>
+    <span class="center">
         <span class="duration">
-            <span class="num">
-                {Math.round(duration / (1000 * 60 * 60))}
+            <span>
+                <span class="num">
+                    {Math.round(duration / (1000 * 60 * 60))}
+                </span>
+                Hours
             </span>
-            Hours
-            <span class="num">
-                {(Math.floor((duration / (1000 * 60 * 60)) * 100) / 100 -
-                    Math.floor(duration / (1000 * 60 * 60))) *
-                    60}
+            <span>
+                <span class="num">
+                    {(Math.floor((duration / (1000 * 60 * 60)) * 100) / 100 -
+                        Math.floor(duration / (1000 * 60 * 60))) *
+                        60}
+                </span>
+                Minutes
             </span>
-            Minutes
         </span>
         <span class="result">
             <span class="num">
@@ -75,5 +82,4 @@
             }).split("M ")[1]}
         </span>
     </span>
-    <button onclick={addCycle} class="cycles">+</button>
 </div>

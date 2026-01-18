@@ -11,7 +11,6 @@ $olive: #9C8D1C;
 
 * {
     color: $alabaster_grey;
-    // zoom:1.1;
     // border: 1px solid red !important;
 }
 
@@ -19,13 +18,19 @@ body {
     background-color: $evergreen;
 }
 
-.app {
+.app,
+.calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-h1{
+.calculator {
+    gap: 3vh;
+    margin: auto;
+}
+
+h1 {
     font-size: 10vh;
     text-align: center;
 }
@@ -40,8 +45,13 @@ button {
 
 div.cycles {
     display: flex;
+    flex-direction: row;
     justify-items: center;
     gap: 5vw;
+}
+
+span.cycles {
+    font-size: 7.5vh;
 }
 
 span.center {
@@ -49,10 +59,7 @@ span.center {
     flex-direction: column;
     align-items: center;
     font-size: 2.3vh;
-}
-
-span.cycles {
-    font-size: 7.5vh;
+    white-space: nowrap;
 }
 
 @keyframes abc {
@@ -72,21 +79,91 @@ span.cycles {
     }
 }
 
-.cycles>.num {
+.cycles .num {
+
+    h1 {
+        font-size: 10vw;
+    }
+
+    div.cycles {
+        flex-direction: column-reverse;
+        gap: 0;
+        margin-bottom: 10vh;
+    }
+
+    button {
+        font-size: 25vw;
+        text-shadow: .25vw .25vw;
+        line-height: 40%;
+    }
+
     font-size: 20vh;
     font-weight: bolder;
     text-shadow: .25vh .25vh;
     animation: 101s linear calc(-1s * var(--enough)) paused abc;
 }
 
-.duration>.num {
+.duration .num {
     font-size: 6.25vh;
     font-weight: bold;
     text-shadow: .1vh .1vh;
 }
 
-.result>.num {
+.result .num {
     font-size: 3.75vh;
     font-weight: bold;
     text-shadow: .1vh .1vh;
+    justify-self: center;
+
+}
+
+@media (aspect-ratio < .7) {
+
+    html,
+    body,
+    .container,
+    .app {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    h1 {
+        font-size: 10vw;
+    }
+
+    div.cycles {
+        flex-direction: column-reverse;
+        gap: 0;
+    }
+
+    button {
+        font-size: 50vw;
+        text-shadow: .25vw .25vw;
+        line-height: 40%;
+    }
+
+    span.cycles {
+        font-size: 15vw;
+    }
+
+    span.center {
+        font-size: 4.6vw;
+    }
+
+    .cycles .num {
+        font-size: 40vw;
+        text-shadow: .5vw .5vw;
+    }
+
+    .duration .num {
+        font-size: 12.5vw;
+        text-shadow: .2vw .2vw;
+    }
+
+    .result .num {
+        font-size: 7.5vw;
+        text-shadow: .2vw .2vw;
+    }
+
 }
