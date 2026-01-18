@@ -3,7 +3,7 @@ const fall = 15 * 60 * 1000; // time to fall asleep
 const goodState = 100;
 const badState = 0;
 const cycleMin = 3.5;
-const cycleMax = 5;
+const cycleMax = 6;
 export const cycleDef = cycleMax;
 
 // Enough sleep is measured from badState to goodState.
