@@ -11,7 +11,7 @@
     let cycles = $state(cycleDef);
     let duration = $derived(result - now);
 
-    let enough = $derived.by(()=>isEnoughSleep(cycles));
+    let enough = $derived.by(() => isEnoughSleep(cycles));
 
     $effect(() => {
         result = wakeUpTime(now, cycles);
@@ -77,9 +77,11 @@
                 })}
             </span>
 
-            {new Date(result).toLocaleString([], {
-                timeZoneName: "shortGeneric",
-            }).split("M ")[1]}
+            {new Date(result)
+                .toLocaleString([], {
+                    timeZoneName: "shortGeneric",
+                })
+                .split("M ")[1]}
         </span>
     </span>
 </div>
