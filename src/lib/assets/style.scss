@@ -11,7 +11,7 @@ $olive: #9C8D1C;
 
 * {
     color: $alabaster_grey;
-    zoom:1.1;
+    // zoom:1.1;
     // border: 1px solid red !important;
 }
 
@@ -26,31 +26,33 @@ body {
 }
 
 h1{
-    font-size: 40pt;
+    font-size: 10vh;
+    text-align: center;
 }
 
 button {
     border: none;
     background: transparent;
     color: $grey_olive;
-    font-size: 100pt;
-    text-shadow: 1pt 1pt $granite;
+    font-size: 25vh;
+    text-shadow: .25vh .25vh $granite;
 }
 
 div.cycles {
     display: flex;
     justify-items: center;
-    gap: 1em;
+    gap: 5vw;
 }
 
 span.center {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
+    font-size: 2.3vh;
 }
 
 span.cycles {
-    font-size: xx-large;
+    font-size: 7.5vh;
 }
 
 @keyframes abc {
@@ -71,20 +73,20 @@ span.cycles {
 }
 
 .cycles>.num {
-    font-size: 75pt;
+    font-size: 20vh;
     font-weight: bolder;
-    text-shadow: 1pt 1pt;
+    text-shadow: .25vh .25vh;
     animation: 101s linear calc(-1s * var(--enough)) paused abc;
 }
 
 .duration>.num {
-    font-size: 25pt;
+    font-size: 6.25vh;
     font-weight: bold;
-    text-shadow: .33pt .33pt;
+    text-shadow: .1vh .1vh;
 }
 
 .result>.num {
-    font-size: 15pt;
+    font-size: 3.75vh;
     font-weight: bold;
-    text-shadow: .33pt .33pt;
+    text-shadow: .1vh .1vh;
 }
