@@ -53,7 +53,7 @@
         <span class="duration">
             <span>
                 <span class="num">
-                    {Math.round(duration / (1000 * 60 * 60))}
+                    {Math.floor(duration / (1000 * 60 * 60))}
                 </span>
                 Hours
             </span>
